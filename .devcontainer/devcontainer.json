@@ -1,0 +1,13 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/nix:1": {},
+    "ghcr.io/devcontainers-contrib/features/apt-packages:1": {
+      "packages": "curl,zsh"
+    }
+  },
+  "postCreateCommand": "chsh -s /bin/zsh $USER",
+  "postAttachCommand": "curl -fsSL https://get.jetpack.io/devbox | bash -s -- -f && echo done && echo 'eval \"$(devbox global shellenv --init-hook)\"' >> ~/.zshrc && eval \"$(devbox global shellenv --recompute)\"  && devbox global pull https://github.com/wardnath/devbox-config.git --force",
+  "containerUser": "root",
+  "remoteUser": "root"
+}
